@@ -1,21 +1,25 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Eric Pallad'
-export const siteTitle = 'Next.js Sample Website'
+import NavBar from "./navigation/Navbar";
+import navButtons from "../config/buttons";
 
-export default function Layout({ children, home }) {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <header></header>
-      <main>{children}</main>
-      <footer></footer>
-    </div>
-  )
+export const siteTitle = 'Tippi - Tip your delivery hero'
+
+export default function Layout({ children }) {
+	return (
+		<div className={styles.container}>
+		<Head>
+			<title>{siteTitle}</title>
+			<link rel="icon" href="/favicon.ico" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+		</Head>
+		<header>
+			<NavBar navButtons={navButtons} />
+		</header>
+		<main>{children}</main>
+		<footer></footer>
+		</div>
+	)
 }
